@@ -5,11 +5,13 @@ import ItemList from "./itemlist";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export default function App(){
-  return <div>
+  return(
+  <div className="container-fluid">
     App
     <SideBar/>
     <InputForm/>
-    <ItemCard/>
     <ItemList/>
+    <ItemCard/>
   </div>
+  )
 }

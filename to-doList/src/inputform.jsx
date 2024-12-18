@@ -1,3 +1,9 @@
 export default function InputForm(){
-    return <div>Input</div>
+    return (
+    
+    <div className="container-fluid" >
+        <textarea className="form-control">Task Here</textarea>
+        </div>
+
+    )
 }

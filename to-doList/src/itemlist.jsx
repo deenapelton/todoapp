@@ -1,3 +1,5 @@
 export default function ItemList(){
-    return <div>itemList</div>
+    return (
+    <div className="container-fluid">itemList</div>
+    )
 }

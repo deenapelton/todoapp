@@ -1,3 +1,5 @@
 export default function ItemCard(){
-    return <div>itemCard</div>
+    return (
+    <div className="container-fluid">itemCard</div>
+    )
 }
