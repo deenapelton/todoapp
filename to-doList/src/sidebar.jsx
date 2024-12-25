@@ -1,7 +1,7 @@
 export default function SideBar(){
     return(
          <div className=" border d-none d-lg-block w-25 p-3">
-sidebar
+Quick View
          <ul class="nav flex-column">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">Active</a>

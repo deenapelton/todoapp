@@ -1,4 +1,4 @@
-export default function ItemList({task, due}){
+export default function ItemList({id,task, due}){
     return (
     <div className="container-fluid">
     <table class="table">
@@ -12,19 +12,19 @@ export default function ItemList({task, due}){
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{id}</th>
       <td>{task}</td>
       <td>{due}</td>
       
     </tr>
     <tr>
-      <th scope="row">2</th>
+      <th scope="row">{id}</th>
       <td>{task}</td>
       <td>{due}</td>
       
     </tr>
     <tr>
-      <th scope="row">3</th>
+      <th scope="row">{id}</th>
       <td>{task}</td>
       <td>{due}</td>
       
