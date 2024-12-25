@@ -3,16 +3,26 @@ import InputForm from "./inputform";
 import ItemCard from "./itemcard";
 import ItemList from "./itemlist";
 import MyButton from "./Button";
+import TodoList from "./testData";  
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useState, useEffect } from 'react';
 
 const API_URL= "http://localhost:3000/ToDo"
+function createCard(TodoList){
+  return <ItemCard
+  key={TodoList.id}
+  task={TodoList.task}
+  due={TodoList.due}
+  />
+}
+
+
 
 export default function App(){
 
-  const [task,setList] = useState([])
+   /*const [task,setList] = useState([])
 
-  /*
+ 
   setList(fetch(API_URL).then(data => data.JSON).then(data => getTask(data)))
   
 
@@ -34,7 +44,7 @@ useEffect(() => {getTask()}, [])*/
     <MyButton name="delete" />
     <MyButton name="Post"/>
     <MyButton name="Update"/>
-    <SideBar/>
+    {TodoList.map(createCard)}
     <ItemCard/>
   </div>
   )

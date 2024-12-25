@@ -1,10 +1,9 @@
 import ItemList from "./itemlist";
-export default function ItemCard(){
+export default function ItemCard(props){
     return (
     <div className="container-fluid border w-25 p-3">
-        <h1 className="position-absolute start-50 translate-middle
-">TASK</h1>
-    <ItemList id="1" task="dishes" due="today" />
+        <h2 className="text-center">{props.task}</h2>
+    <p>Due: {props.due}</p>
     </div>
     
 )
