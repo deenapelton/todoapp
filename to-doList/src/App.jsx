@@ -4,11 +4,15 @@ import ItemCard from "./itemcard";
 import ItemList from "./itemlist";
 import MyButton from "./Button";
 import TodoList from "./testData";  
+import DisplayArray from "./displayarray";  
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useState, useEffect } from 'react';
 
-const API_URL= "http://localhost:3000/ToDo"
+//const API_URL= "http://localhost:3000/ToDo"
+
+//function to create card, takes in TodoList object
 function createCard(TodoList){
+  //returns ItemCard component with task and due props
   return <ItemCard
   key={TodoList.id}
   task={TodoList.task}
@@ -20,32 +24,83 @@ function createCard(TodoList){
 
 export default function App(){
 
-   /*const [task,setList] = useState([])
-
- 
-  setList(fetch(API_URL).then(data => data.JSON).then(data => getTask(data)))
+//const API_URL= "http://localhost:3000/ToDo"
+// I'm setting the state of the task array to the TodoList array 
+ const [task, setTask] = useState(TodoList);
+ const addTask= (newTask) => {
+  //create a new copy of task array
+  const updatedTasks = [...task];
+  //add new task to the new copy
+  updatedTasks.push(newTask);
+  //set the task array to the new copy
+  setTask(updatedTasks);
+}
   
+ /*function getToDoList() {
+    fetch(API_URL)
+      .then((data) => data.json())
+      .then((data) => {
+        setToDoList(data)
+        console.log(data)
+      })
+  }
 
-function deleteTask(){}
+  function deleteTask(id) {
+    fetch(API_URL + `/${id}`, {
+      method: 'DELETE',
+    }).then(() => getTasks())
+  }
+  function postTask(e) {
+    e.preventDefault()
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        task: newTask,
+        due: newDueDate
+        
+      }),
+    }).then(() => getToDoList())
+  }
 
-function updateTask(){}
+  function updateTask(e, toDoListObject) {
+    e.preventDefault()
+    let updatedTaskObject = {
+      ...toDoListObject,
+      task: updatedTask,
+      due: updatedDueDate,
+    }
+    fetch(`${API_URL}/${toDoListObject.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedTaskObject),
+    }).then(() => getToDoList())
+  }*/
 
-function postTask(){}
 
 
-useEffect(() => {getTask()}, [])*/
 
 
   return(
   <div className="container-fluid">
     ToDoList
-    <InputForm/>
-    <MyButton name="submit"/>
+    <InputForm addTask={addTask} />
+    
     <MyButton name="delete" />
     <MyButton name="Post"/>
     <MyButton name="Update"/>
-    {TodoList.map(createCard)}
-    <ItemCard/>
+    <DisplayArray task={task} />
+  
+ 
+    
   </div>
-  )
+)
 }
+//
+//
+// <InputForm addTodo= {addTask}/> calls the InputForm function and passes in addTask function as a prop
+// {TodoList.map(createCard)} maps through TodoList array and calls createCard function for each object in the array
