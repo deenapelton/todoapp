@@ -1,7 +1,11 @@
-export default function myButton({name}){
+export default function myButton({doSomething, name}){
    
 return(
-<button type="button" class="btn btn-secondary">{name}</button>
+<button type="button" 
+onClick={doSomething} 
+className="btn btn-secondary " 
+style={{ marginRight: '10px' } }
+>{name}</button>
 
 )
 

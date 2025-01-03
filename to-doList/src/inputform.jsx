@@ -26,32 +26,38 @@ export default function InputForm({addTask}){
    }   
 
    //function to handle change in input
-const handlechange = (e) => {
+const handleTaskChange = (e) => {
+    
   setTask(e.target.value)//set task to value of input
- setDue(e.target.value)      //set due to value of input
+ 
+}
+const handleDueChange = (e) => {
+    setDue(e.target.value)      //set due to value of input
 }
 
     return (//form to take in task and due date
-        <>
+        <div>
     <form onSubmit={handleSubmit}>
         <label htmlFor="todoTitle">Task:</label>
         <input
             type="text"
-            id="todoTitle"
+            
             value={task}
-            onChange={(e) => setTask(e.target.value)}
+            onChange={handleTaskChange}
+            placeholder="Enter Task"
         />
         <label htmlFor="dueDate">Due Date:</label>
         <input
             type="text"
-            id="dueDate"
+            
             value={due}
-            onChange={(e) => setDue(e.target.value)}
+            onChange={handleDueChange}
+            placeholder="Enter Due Date"
         />
         <button type="submit">Add Todo</button>
     </form>
 
-   </>//returning the form 
+   </div>//returning the form 
     )
 }
 /* 
